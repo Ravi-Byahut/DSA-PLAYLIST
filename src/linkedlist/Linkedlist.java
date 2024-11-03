@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.Stack;
+
 public class Linkedlist {
 
     public static void main(String[] args) {
@@ -22,6 +24,8 @@ public class Linkedlist {
 
         }
         printLinkedList(head);
+        System.out.println("reverse print");
+        reversePrint(head);
 
     }
    static void printLinkedList(Node head)
@@ -36,6 +40,21 @@ public class Linkedlist {
         {
             System.out.println(temp.data);
             temp=temp.next;
+        }
+    }
+    static void reversePrint(Node head)
+    {
+        Node temp=head;
+        Stack<Integer> stack=new Stack<>();
+        while(temp!=null)
+        {
+            stack.push(temp.data);
+            temp=temp.next;
+        }
+
+        while(!stack.isEmpty())
+        {
+            System.out.println(stack.pop());
         }
     }
 }
